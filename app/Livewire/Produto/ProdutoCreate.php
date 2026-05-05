@@ -13,19 +13,21 @@ class ProdutoCreate extends Component
     public $qtd_minima;
 
     public function store(){
-       Produto::create([
-           'nome' => $this->nome,
-           'valor' => $this->valor,
-           'qtd_estoque' => $this->qtd_estoque,
-           'qtd_minima' => $this->qtd_minima
-       ]);
+        Produto::create([
+            'nome' => $this->nome,
+            'valor' => $this->valor,
+            'qtd_estoque' => $this->qtd_estoque,
+            'qtd_minima' => $this->qtd_minima
+        ]);
 
-       session()->flash('success', 'Cadastro realizado com sucesso');
-       return redirect()->route('produto.index');
+        session()->flash('success', 'Cadastrado');
+        return redirect()->route('produto.index');
     }
+
 
     public function render()
     {
         return view('livewire.produto.produto-create');
     }
 }
+
